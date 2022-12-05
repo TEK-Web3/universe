@@ -1,3 +1,5 @@
+import TanstackProvider from "./tanstackProvider";
+
 export default function RootLayout({
   children,
 }: {
@@ -6,7 +8,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <head />
-      <body>{children}</body>
+      <body>
+        <div className="prose w-full w-min-none">
+          <TanstackProvider>{children}</TanstackProvider>
+        </div>
+      </body>
     </html>
   );
 }
