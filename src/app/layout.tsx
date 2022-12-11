@@ -1,18 +1,12 @@
-import TanstackProvider from "./tanstackProvider";
+import TanstackProvider from '@/app/components/tanstackProvider';
+import '@/styles/globals.css';
+import Navigation from '@/app/navigation';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" data-theme="dark">
-      <head />
-      <body>
-        <div className="prose w-full w-min-none">
-          <TanstackProvider>{children}</TanstackProvider>
-        </div>
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <TanstackProvider>
+            <Navigation />
+            <div className="prose w-full w-min-none max-w-none p-8">{children}</div>
+        </TanstackProvider>
+    );
 }

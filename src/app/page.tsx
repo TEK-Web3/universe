@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>Homepage on next</h1>;
+    return (
+        <div className="max-w-5xl mx-auto">
+            <h1>Not Logged In Page</h1>
+        </div>
+    );
 }
