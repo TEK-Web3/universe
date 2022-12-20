@@ -1,16 +1,28 @@
-import Card from './card';
+'use client';
+import { useWalletConnector } from '@/app/components/useWallet';
 
-export default async function Dashboard() {
-    const cards = await (await fetch('http://localhost:3000/api/cards')).json();
+export default function Dashboard() {
+    const { account, balance, connect } = useWalletConnector();
+
     return (
-        <div className="max-w-5xl mx-auto">
-            <h1>Logged in Dashboard Page</h1>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {cards.map((card: any) => (
-                    <Card key={card.id} {...card} />
-                ))}
+        <div className="text-white">
+            <div className="mb-8">
+                <p>{`Connected Address: ${account ? account : ''}`}</p>
+                <p>{`Balance: ${balance ? balance : ''}`}</p>
             </div>
+
+            {account ? (
+                <div>
+                    <p>Link somewhere</p>
+                </div>
+            ) : (
+                <button
+                    className="rounded border border-blue-500 bg-transparent from-cyan-500 to-blue-500 py-2 px-4 font-semibold text-white hover:bg-gradient-to-r"
+                    onClick={connect}
+                >
+                    Connect
+                </button>
+            )}
         </div>
     );
 }
