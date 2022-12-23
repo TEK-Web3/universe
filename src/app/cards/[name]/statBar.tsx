@@ -6,7 +6,7 @@ export default function StatBar({ color, value }: { color: string; value: number
     useLayoutEffect(() => {
         const timeout = setTimeout(() => {
             setPercentage((value / 17) * 100);
-        }, 200);
+        }, 10);
 
         return () => clearTimeout(timeout);
     }, [value]);
