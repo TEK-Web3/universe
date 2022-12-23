@@ -32,7 +32,7 @@ export default function MetaData({ cardName }: { cardName: string }) {
     const tableData = [
         { name: 'Quality', value: metaData?.quality ?? null },
         { name: 'Rarity', value: metaData?.rarity ?? null },
-        { name: 'God', value: metaData?.type ?? null },
+        { name: 'God', value: metaData?.god ?? null },
         { name: 'Tribe', value: metaData?.tribe ?? null },
     ];
 
@@ -75,7 +75,9 @@ export default function MetaData({ cardName }: { cardName: string }) {
                         return (
                             <tr key={`table-data-${idx}`}>
                                 <td align="center">{data.name}</td>
-                                <td align="center">{data.value}</td>
+                                <td align="center" className="capitalize">
+                                    {data.value}
+                                </td>
                             </tr>
                         );
                     })}
