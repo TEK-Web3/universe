@@ -3,6 +3,7 @@ import { ethers } from 'ethers';
 import { useCallback, useEffect } from 'react';
 import { useWallet } from '../hooks/useWallet';
 import { useGetEthersProviderContext } from '@/app/components/metaMaskProvider';
+import Image from 'next/image';
 
 export default function ConnectButton({ display = true }: { display?: boolean }) {
     const { account } = useWallet();
@@ -71,8 +72,12 @@ export default function ConnectButton({ display = true }: { display?: boolean })
     if (account || display === false) return null;
 
     return (
-        <button className="btn btn-primary" onClick={connect}>
-            Connect
-        </button>
+        <div className="flex flex-col items-center w-full h-full gap-3 text-center justfy-center">
+            <Image src="/metamask.png" width={150} height={150} alt="metamask logo" />
+            <p className="mt-0">Connect with your MetaMask wallet to see your cards.</p>
+            <button className="btn btn-primary" onClick={connect}>
+                Connect With MetaMask
+            </button>
+        </div>
     );
 }
