@@ -39,7 +39,7 @@ export default function MetaData({ cardName }: { cardName: string }) {
     return (
         <>
             <div className="flex flex-col gap-5 md:flex-row">
-                <div className="w-full md:w-fit h-fit">
+                <div className="flex mx-auto w-fit h-fit">
                     <Image
                         src={card.image_url as string}
                         alt={card.name as string}
