@@ -5,10 +5,8 @@ import { useWallet } from '../hooks/useWallet';
 import { useGetEthersProviderContext } from '@/app/components/metaMaskProvider';
 
 export default function ConnectButton() {
-    const wallet = useWallet();
+    const { account } = useWallet();
     const { provider } = useGetEthersProviderContext();
-
-    const { account } = wallet;
 
     const checkConnection = useCallback(
         async (provider: ethers.providers.Web3Provider) => {
