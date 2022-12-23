@@ -6,7 +6,7 @@ export default function Navigation() {
         <div className="shadow navbar bg-base-100">
             <div className="flex-1">
                 <Link href="/" className="text-xl normal-case btn btn-ghost">
-                    TEK Cards
+                    GUCV (GU Cards Viewer)
                 </Link>
             </div>
             <div className="flex-none gap-4">
