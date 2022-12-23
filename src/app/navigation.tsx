@@ -1,4 +1,3 @@
-import ThemeSwitcher from '@/app/components/themeSwitcher';
 import Link from 'next/link';
 
 export default function Navigation() {
@@ -13,7 +12,6 @@ export default function Navigation() {
                 <Link href="/cards" className="normal-case rounded btn btn-ghost">
                     My Cards
                 </Link>
-                <ThemeSwitcher />
             </div>
         </div>
     );
