@@ -1,12 +1,11 @@
 'use client';
-import { useWalletConnector } from '@/app/components/useWallet';
 import { useQuery } from '@tanstack/react-query';
 import imxClient, { AssetWithOrders } from '@/app/components/imxClient';
 import Card from './card';
+import { useWallet } from '../hooks/useWallet';
 
 export default function CardContainer() {
-    const { account } = useWalletConnector();
-    console.log(account, 'account');
+    const { account } = useWallet();
     const { data: cards, isLoading } = useQuery(
         ['cards'],
         async () => {
