@@ -12,7 +12,7 @@ export default function StatBar({ color, value }: { color: string; value: number
     }, [value]);
 
     return (
-        <div className="relative flex flex-1 w-full h-4 overflow-hidden bg-transparent border rounded border-base-300">
+        <div className="relative flex flex-1 w-full h-4 overflow-hidden bg-transparent border border-gray-600 rounded">
             <span
                 className={`transition-all duration-1000 ease-out h-full ${
                     color ? color : 'bg-accent'
