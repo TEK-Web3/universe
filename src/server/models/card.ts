@@ -16,6 +16,8 @@ export interface MetaData {
     god: string;
     set: string;
     mana: number;
+    health: number;
+    attack: number;
     name: string;
     type: 'card';
     image: string;

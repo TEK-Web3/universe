@@ -4,7 +4,7 @@ import { useCallback, useEffect } from 'react';
 import { useWallet } from '../hooks/useWallet';
 import { useGetEthersProviderContext } from '@/app/components/metaMaskProvider';
 
-export default function ConnectButton() {
+export default function ConnectButton({ display = true }: { display?: boolean }) {
     const { account } = useWallet();
     const { provider } = useGetEthersProviderContext();
 
@@ -68,13 +68,7 @@ export default function ConnectButton() {
         }
     };
 
-    if (account) {
-        return (
-            <div>
-                <p>Show the card</p>
-            </div>
-        );
-    }
+    if (account || display === false) return null;
 
     return (
         <button className="btn btn-primary" onClick={connect}>

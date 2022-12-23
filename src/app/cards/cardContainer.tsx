@@ -1,27 +1,23 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
-import imxClient, { AssetWithOrders } from '@/app/components/imxClient';
+import { AssetWithOrders } from '@/app/components/imxClient';
 import Card from './card';
 import { useWallet } from '../hooks/useWallet';
+import { getCards } from '@/server/getCards';
 
 export default function CardContainer() {
     const { account } = useWallet();
-    const { data: cards, isLoading } = useQuery(
+    const { data: cards, isFetching } = useQuery(
         ['cards'],
-        async () => {
-            const { getGods } = await imxClient();
-            const response = await getGods(account as string);
-            return response.result.filter(
-                asset =>
-                    asset.token_address === '0xacb3c6a43d15b907e8433077b6d38ae40936fe2c'
-            );
-        },
+        async () => getCards(account ?? ''),
         {
             enabled: Boolean(account),
         }
     );
 
     if (!cards) return null;
+
+    if (isFetching) return <div>Loading...</div>;
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
