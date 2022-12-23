@@ -25,6 +25,7 @@ export interface MetaData {
     effect: string;
     rarity: string;
     quality: string;
+    tribe: string;
 }
 
 export interface Collection {
