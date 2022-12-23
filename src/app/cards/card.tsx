@@ -8,13 +8,13 @@ export default function Card({ name, image_url }: AssetWithOrders) {
             <h3>{name}</h3>
             <Image
                 src={image_url as string}
-                width={200}
-                height={300}
+                width={300}
+                height={500}
                 alt={name as string}
             />
             <Link
                 href={`/cards/${(name as string).replace(/ /g, '-').toLowerCase()}`}
-                className="btn btn-ghost rounded mt-2 underline-none"
+                className="mt-2 rounded btn btn-ghost underline-none"
             >
                 view more
             </Link>
