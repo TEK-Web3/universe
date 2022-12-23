@@ -19,14 +19,12 @@ export const EthersProvider = (props: Props) => {
     const [contextValue, setContext] = useState<Context>(initial);
 
     useEffect(() => {
-        if (!window.ethereum) {
-            throw new Error('No MetaMask');
-        }
+        if (window.ethereum) {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-        if (provider) {
-            setContext({ provider });
+            if (provider) {
+                setContext({ provider });
+            }
         }
     }, []);
 

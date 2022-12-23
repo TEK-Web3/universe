@@ -73,11 +73,35 @@ export default function ConnectButton({ display = true }: { display?: boolean })
 
     return (
         <div className="flex flex-col items-center w-full h-full gap-3 text-center justfy-center">
-            <Image src="/metamask.png" width={150} height={150} alt="metamask logo" />
-            <p className="mt-0">Connect with your MetaMask wallet to see your cards.</p>
-            <button className="btn btn-primary" onClick={connect}>
-                Connect With MetaMask
-            </button>
+            {provider ? (
+                <>
+                    <Image
+                        src="/metamask.png"
+                        width={150}
+                        height={150}
+                        alt="metamask logo"
+                    />
+                    <p className="mt-0">
+                        Connect with your MetaMask wallet to see your cards.
+                    </p>
+                    <button className="btn btn-primary" onClick={connect}>
+                        Connect With MetaMask
+                    </button>
+                </>
+            ) : (
+                <div className="flex flex-col items-center justify-center">
+                    <Image
+                        alt="loading metamask"
+                        src="/loading.svg"
+                        width="100"
+                        height="100"
+                    />
+                    <h3>Locating your MetaMask Provider</h3>
+                    <p className="text-sm text-white/30">
+                        This site requires you to have a MetaMask account.
+                    </p>
+                </div>
+            )}
         </div>
     );
 }
