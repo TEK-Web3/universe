@@ -1,5 +1,5 @@
 import CardContainer from './cardContainer';
-import ConnectButton from './connectButton';
+import ConnectButton from '../components/connectButton';
 
 export default function Dashboard() {
     return (

@@ -16,6 +16,8 @@ export interface MetaData {
     god: string;
     set: string;
     mana: number;
+    health: number;
+    attack: number;
     name: string;
     type: 'card';
     image: string;
@@ -23,6 +25,7 @@ export interface MetaData {
     effect: string;
     rarity: string;
     quality: string;
+    tribe: string;
 }
 
 export interface Collection {
