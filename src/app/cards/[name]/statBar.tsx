@@ -1,10 +1,22 @@
+import { useLayoutEffect, useState } from 'react';
+
 export default function StatBar({ color, value }: { color: string; value: number }) {
-    const percentage = (value / 17) * 100;
+    const [percentage, setPercentage] = useState(100);
+
+    useLayoutEffect(() => {
+        const timeout = setTimeout(() => {
+            setPercentage((value / 17) * 100);
+        }, 10);
+
+        return () => clearTimeout(timeout);
+    }, [value]);
 
     return (
-        <div className="relative flex flex-1 w-full h-4 bg-transparent border border-gray-500 rounded">
+        <div className="relative flex flex-1 w-full h-4 overflow-hidden bg-transparent border border-gray-600 rounded">
             <span
-                className={`h-full rounded ${color ? color : 'bg-accent'}`}
+                className={`transition-all duration-1000 ease-out h-full ${
+                    color ? color : 'bg-accent'
+                }`}
                 style={{ width: `${percentage}%` }}
             />
 

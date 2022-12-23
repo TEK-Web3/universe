@@ -29,12 +29,8 @@ export default function MetaData({ cardName }: { cardName: string }) {
         { name: 'Attack Power', color: 'bg-warning', value: metaData?.attack ?? 0 },
     ];
 
-    const tableData = [
-        { name: 'Quality', value: metaData?.quality ?? null },
-        { name: 'Rarity', value: metaData?.rarity ?? null },
-        { name: 'God', value: metaData?.god ?? null },
-        { name: 'Tribe', value: metaData?.tribe ?? null },
-    ];
+    const { proto, type, effect, image, mana, attack, health, name, ...rest } = metaData;
+    const attributes = Object.entries(rest);
 
     return (
         <>
@@ -70,13 +66,14 @@ export default function MetaData({ cardName }: { cardName: string }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {tableData.map((data, idx) => {
-                        if (data.value === null) return null;
+                    {attributes.map(([name, value], idx) => {
                         return (
                             <tr key={`table-data-${idx}`}>
-                                <td align="center">{data.name}</td>
                                 <td align="center" className="capitalize">
-                                    {data.value}
+                                    {name}
+                                </td>
+                                <td align="center" className="capitalize">
+                                    {value}
                                 </td>
                             </tr>
                         );
